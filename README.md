@@ -14,15 +14,15 @@ Note: This code was tested with `torch==2.2.1+cu121`.
 ### 1. Clone this repository
 
 ```bash
-git clone https://github.com/MahdiSaberii/CycMit-MRI.git
-cd CycMit-MRI
+git clone https://github.com/MahdiSaberii/Non-Cartesian-SSDU-MRI.git
+cd Non-Cartesian-SSDU-MRI
 ```
 
 ### 2. Create and activate conda environment
 
 ```bash
-conda create -n non_cartesian_ssdu python=3.10 -y
-conda activate non_cartesian_ssdu
+conda create -n non_cartesian_ssdu_mri python=3.10 -y
+conda activate non_cartesian_ssdu_mri
 ```
 
 ### 3. Install PyTorch

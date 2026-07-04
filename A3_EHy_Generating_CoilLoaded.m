@@ -38,7 +38,7 @@ for subj_idx=1:length(Train_Subjects)
     file_list       = dir(fullfile(data_path, Subject_pattern));
     name            = fullfile(file_list(1).folder, file_list(1).name);
 
-    data   = load(name); % shape: 17960, 24, 4, 52 --> (Spikes*Echo, Slice, TimeFrames, Coils)
+    data   = load(name); % shape: 17960, 24, 4, 52 --> (TotalNumberofPoints*Echo, Slice, TimeFrames, Coils)
     nSlice = size(data.data, 2);
     nCoil  = size(data.data, 4); 
 %% Loading coil sensitivity maps

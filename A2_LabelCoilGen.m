@@ -14,7 +14,7 @@ if ~exist("./Labels/", 'dir')
 end 
 
 %%
-Tukey_filter = load("./Tuke_01.mat").LPfilter;
+Tukey_filter = load("../Data/Tuke_01.mat").LPfilter;
 Tukey_filter = repmat(Tukey_filter, [1 1 1 1 1]);
 
 for subj_idx=11:17

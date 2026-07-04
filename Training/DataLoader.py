@@ -1,10 +1,9 @@
-import glob
 import os
-import scipy.io as sio
-import torch
-from torch.utils.data import Dataset
-from torch.utils.data import Dataset
+import glob
 import random
+import torch
+import scipy.io as sio
+from torch.utils.data import Dataset
 
 
 class DataLoaderSL(Dataset):    

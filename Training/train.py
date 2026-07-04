@@ -133,7 +133,7 @@ if __name__ == "__main__":
                 theta_EHWy_idx  = theta_EHWy[:,:,:,:,i_mask].squeeze(-1).squeeze(-2) 
                 lambda_EHWy_idx = lambda_EHWy[:,:,:,:,:,i_mask].squeeze(-1).squeeze(-2) 
 
-				dc_out           = CG(theta_EHWy , theta_EHWy  ,coil, used_M_theta) 
+				dc_out           = CG(theta_EHWy_idx , theta_EHWy_idx  ,coil, used_M_theta) 
 	            fft_dcout        = torch.fft.fftshift(torch.fft.fftn(torch.fft.fftshift(dc_out, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
 	            fft_dcout_center = Cropping_center(fft_dcout, crop_size=LPF_size, crop_dims=[-2,-1]) * LPF
 	            dc_out_filtered  = torch.fft.ifftshift(torch.fft.ifftn(torch.fft.ifftshift(fft_dcout_center, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])

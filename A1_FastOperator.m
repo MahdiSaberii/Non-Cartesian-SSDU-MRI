@@ -26,7 +26,7 @@ end
 %% Calculate NUFFT operator
 load('./DCF/DCF_Full.mat')
 trj_kxy      = kx + 1j*ky;
-mask_all_one = ifftshift(ifftshift(load("./all_ones_mask.mat").mask_M, 1),2); 
+mask_all_one = ifftshift(ifftshift(load("../Data/all_ones_mask.mat").mask_M, 1),2); 
 
 %% Supervised M full
 working_dcf = reshape(dcf_full, [TotalNumberofPoints*nArms, nEcho]);

@@ -134,10 +134,10 @@ if __name__ == "__main__":
                 lambda_EHWy_idx = lambda_EHWy[:,:,:,:,:,i_mask].squeeze(-1).squeeze(-2) 
 
 				dc_out           = CG(theta_EHWy_idx , theta_EHWy_idx  ,coil, used_M_theta) 
-	            fft_dcout        = torch.fft.fftshift(torch.fft.fftn(torch.fft.fftshift(dc_out, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
-	            fft_dcout_center = Cropping_center(fft_dcout, crop_size=LPF_size, crop_dims=[-2,-1]) * LPF
-	            dc_out_filtered  = torch.fft.ifftshift(torch.fft.ifftn(torch.fft.ifftshift(fft_dcout_center, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
-	            p_prime          = dc_out_filtered / (torch.sqrt(dc_out_filtered.real**2 + dc_out_filtered.imag**2) + 1e-12)
+				fft_dcout        = torch.fft.fftshift(torch.fft.fftn(torch.fft.fftshift(dc_out, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
+				fft_dcout_center = Cropping_center(fft_dcout, crop_size=LPF_size, crop_dims=[-2,-1]) * LPF
+				dc_out_filtered  = torch.fft.ifftshift(torch.fft.ifftn(torch.fft.ifftshift(fft_dcout_center, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
+				p_prime          = dc_out_filtered / (torch.sqrt(dc_out_filtered.real**2 + dc_out_filtered.imag**2) + 1e-12)
 				
                 if   MODEL == "ConvPDDL":
                     output          = network(theta_EHWy_idx , coil , used_M_theta)          # Shape: (1,nEcho,120,120)

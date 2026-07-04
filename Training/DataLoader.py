@@ -1,7 +1,7 @@
 import os
 import glob
-import random
 import torch
+import random
 import scipy.io as sio
 from torch.utils.data import Dataset
 

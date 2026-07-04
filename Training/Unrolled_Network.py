@@ -26,7 +26,7 @@ class UnrolledNet(torch.nn.Module):
         recon = cg(zf, zf, coil_map, M)
         
         for OuterIter in range(self.Unrolls):
-            recon = self.complex2real(recon)  # [B, E, 2, H, W]
+            recon = self.complex2real(recon)       # [B, E, 2, H, W]
             recon = self.Network(recon.float())    # [B, 2E, H, W]
             recon = self.real2complex(recon)       # [B, E, H, W]
             recon = self.DataConsistency(recon, zf, coil_map, M)
@@ -56,9 +56,9 @@ class UnrolledNet_PE(torch.nn.Module):
         recon = cg(zf, zf, coil_map, M)
         
         for OuterIter in range(self.Unrolls):
-            recon = recon * torch.conj(p_prime) # Phase Corection
+            recon = recon * torch.conj(p_prime)    # Phase Corection
             recon = self.complex2real(recon)       # [B, E, 2, H, W]
-            recon = self.Network(recon.float()) # [B, 2E, H, W]
+            recon = self.Network(recon.float())    # [B, 2E, H, W]
             recon = self.real2complex(recon)       # [B, E, H, W]
             recon = recon * p_prime                # Phase Corection
             recon = self.DataConsistency(recon, zf, coil_map, M)

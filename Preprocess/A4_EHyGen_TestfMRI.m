@@ -1,4 +1,5 @@
 close all; clear all; clc;
+addpath("./nufft/")
 
 N_Masks             = 1;
 nEcho               = 5;

@@ -1,15 +1,16 @@
-import torch
-import torch.nn.functional as F
-import numpy as np
-import scipy.io as sio
-from DataLoader_Test import DataLoaderSL as DL
-from DC import DC_2d
-from Unrolled_Network import UnrolledNet, UN_UMPIRE
-from torchvision.utils import save_image
-from tqdm import tqdm
-import matplotlib.pyplot as plt
 import os
+import torch
 import random
+import numpy as np
+from DC import DC_2d
+from tqdm import tqdm
+import scipy.io as sio
+import matplotlib.pyplot as plt
+from Unrolled_Network import UnrolledNet
+from torchvision.utils import save_image
+from DataLoader_Test import DataLoaderSL as DL
+
+
 seed = 42
 random.seed(seed)
 np.random.seed(seed)
@@ -55,15 +56,10 @@ if __name__ == "__main__":
         network    = UnrolledNet(device = device, Unrolls=10, echoes=nEcho).to(device)
     elif MODEL == "PELPF":
         network    = UnrolledNet(device = device, Unrolls=10, echoes=nEcho).to(device)
-    elif MODEL == "PENN":
-        network    = UnrolledNet(device = device, Unrolls=10, echoes=nEcho).to(device)
-    elif MODEL == "UMPIRE":
-        network    = UN_UMPIRE(device = device).to(device)
     network.load_state_dict(torch.load(f"./{MODEL}_{Number_Masks}Masks/model/nework_r{R}_epoch95.pth"))
     network.train()
 
     Saving_Folder     = f"./{MODEL}_{Number_Masks}Masks_Test/"
-
 
     if not os.path.exists(Saving_Folder):
         os.makedirs(Saving_Folder, exist_ok=True)

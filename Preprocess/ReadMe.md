@@ -52,5 +52,5 @@ Preprocess/
 ├── A3_EHyGen.m
 │   └── Computes adjoint NUFFT reconstructions from measured k-space data
 │
-├── A4_EHyGen_TestfMRI.m
-│   └── Applies the preprocessing pipeline to test fMRI data
+└── A4_EHyGen_TestfMRI.m
+    └── Applies the preprocessing pipeline to test fMRI data

@@ -104,6 +104,14 @@ if __name__ == "__main__":
         M_single      = M_single.to(device)
     
         used_M_theta    = M_single # M.shape = [1,N_echoes,img_width,img_width] --> [1,5,120,120]
+
+        dc_out           = CG(omega_EHWy , omega_EHWy  ,coil, used_M_theta) 
+        fft_dcout        = torch.fft.fftshift(torch.fft.fftn(torch.fft.fftshift(dc_out, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
+        fft_dcout_center = Cropping_center(fft_dcout, crop_size=LPF_size, crop_dims=[-2,-1]) * LPF
+        dc_out_filtered  = torch.fft.ifftshift(torch.fft.ifftn(torch.fft.ifftshift(fft_dcout_center, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
+        p_prime          = dc_out_filtered / (torch.sqrt(dc_out_filtered.real**2 + dc_out_filtered.imag**2) + 1e-12)
+
+        
         output          = network(omega_EHWy , coil , used_M_theta) # Shape: (1,nEcho,120,120)
     
         

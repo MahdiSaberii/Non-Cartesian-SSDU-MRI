@@ -1,7 +1,7 @@
 # Non-Cartesian-SSDU-MRI
 
 <p align="center">
-  <img src="./Data/traj_figure.png" alt="Non-Cartesian k-space trajectories" width="900">
+  <img src="./Data/traj_figure.png" width="900">
 </p>
 
 ## Abstract

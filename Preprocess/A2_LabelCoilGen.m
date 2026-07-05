@@ -1,4 +1,6 @@
 close all; clear all; clc;
+addpath("./nufft/")
+addpath("./Espirit/")
 
 nEcho               = 5;
 nArms               = 6;

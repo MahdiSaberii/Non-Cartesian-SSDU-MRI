@@ -111,10 +111,11 @@ if __name__ == "__main__":
         dc_out_filtered  = torch.fft.ifftshift(torch.fft.ifftn(torch.fft.ifftshift(fft_dcout_center, dim=[-2,-1]), dim=[-2,-1], norm='ortho'), dim=[-2,-1])
         p_prime          = dc_out_filtered / (torch.sqrt(dc_out_filtered.real**2 + dc_out_filtered.imag**2) + 1e-12)
 
-        
-        output          = network(omega_EHWy , coil , used_M_theta) # Shape: (1,nEcho,120,120)
-    
-        
+
+        if   MODEL == "ConvPDDL":
+            output          = network(omega_EHWy , coil , used_M_theta)          # Shape: (1,nEcho,120,120)
+        elif MODEL == "PELPF":
+            output          = network(omega_EHWy , coil , used_M_theta, p_prime) # Shape: (1,nEcho,120,120)
 
         dc_out = cg(omega_EHWy , omega_EHWy ,coil, used_M_theta)
 

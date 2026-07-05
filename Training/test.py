@@ -28,7 +28,7 @@ if __name__ == "__main__":
     else:  
         dev = "cpu"  
     device = torch.device(dev)
-    MODEL            = "ConvPDDL" # "ConvPDDL" or "UMPIRE" or "PELPF" or "PENN"
+    MODEL            = "ConvPDDL" # "ConvPDDL" or "PELPF"
     batch_size       = 1
     
     R              = 6
@@ -64,7 +64,6 @@ if __name__ == "__main__":
     if not os.path.exists(Saving_Folder):
         os.makedirs(Saving_Folder, exist_ok=True)
         os.makedirs(f"{Saving_Folder}pngs", exist_ok=True)
-        os.makedirs(f"{Saving_Folder}model", exist_ok=True)              
     
     cg         = DC_2d(mu=0, device=device, iters=15, echos=nEcho, flag_learnable=False)
     train_loss = []  

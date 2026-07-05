@@ -20,6 +20,19 @@ torch.cuda.manual_seed_all(seed)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 
+def Cropping_center(input_tensor, crop_size = 40, crop_dims = [-2,-1]):
+    fft_dcout_center = torch.zeros(input_tensor.shape, dtype=input_tensor.dtype, device=input_tensor.device)
+    
+    center_x = input_tensor.shape[crop_dims[0]] // 2
+    center_y = input_tensor.shape[crop_dims[1]] // 2
+    start_x  = center_x - crop_size // 2
+    end_x    = center_x + crop_size // 2
+    start_y  = center_y - crop_size // 2
+    end_y    = center_y + crop_size // 2
+    fft_dcout_center[..., start_x:end_x, start_y:end_y] = input_tensor[..., start_x:end_x, start_y:end_y]
+    
+    return fft_dcout_center
+
 
 if __name__ == "__main__":
     

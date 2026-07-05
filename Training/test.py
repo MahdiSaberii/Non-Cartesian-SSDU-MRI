@@ -81,7 +81,7 @@ if __name__ == "__main__":
         os.makedirs(Saving_Folder, exist_ok=True)
         os.makedirs(f"{Saving_Folder}pngs", exist_ok=True)
     
-    cg         = DC_2d(mu=0, device=device, iters=15, echos=nEcho, flag_learnable=False)
+    CG         = DC_2d(mu=0, device=device, iters=15, echos=nEcho, flag_learnable=False)
     train_loss = []  
     mu_values  = [[] for _ in range(nEcho)]
     

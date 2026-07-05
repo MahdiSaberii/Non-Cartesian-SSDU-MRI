@@ -1,10 +1,10 @@
-# Preprocessing for Multi-Mask SSDU Learning
+## Preprocessing for Multi-Mask SSDU Learning
 
 This folder contains the preprocessing pipeline used to prepare prospectively undersampled non-Cartesian multi-echo fMRI data for multi-mask SSDU learning. The preprocessing includes trajectory handling, density compensation, NUFFT operator preparation, coil sensitivity map estimation, mask generation, and creation of the data terms used for self-supervised reconstruction.
 
 The goal of this preprocessing stage is to convert raw non-Cartesian k-space measurements into structured inputs that can be used by the downstream physics-driven deep learning reconstruction pipeline. In the multi-mask SSDU setting, the acquired measurements are split into multiple training and validation subsets, allowing the model to learn from prospectively undersampled data without requiring fully sampled reference images.
 
-## Overview
+### Overview
 
 Physics-driven reconstruction of non-Cartesian MRI requires several acquisition-specific components before training can begin. In this pipeline, the measured k-space data are combined with the spiral trajectory, density compensation function, coil sensitivity maps, and NUFFT operators to generate the inputs needed for SSDU-style learning.
 

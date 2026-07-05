@@ -24,9 +24,7 @@ In SSDU learning, the acquired k-space samples are divided into two disjoint set
 - **Training set**: used inside the data-fidelity term during reconstruction.
 - **Validation/loss set**: used to compute the self-supervised loss.
 
-Instead of using only one split, this preprocessing pipeline generates multiple train/validation masks. These multiple masks improve the diversity of the self-supervised learning signal and reduce the dependence of training on a single random k-space partition. Because apparently one mask was not enough chaos for MRI reconstruction.
-
-For each mask, the code prepares the corresponding measurements and operators needed by the reconstruction network.
+Instead of using only one split, this preprocessing pipeline generates multiple train/validation masks. These multiple masks improve the diversity of the self-supervised learning signal and reduce the dependence of training on a single random k-space partition. For each mask, the code prepares the corresponding measurements and operators needed by the reconstruction network.
 
 ## Folder Structure
 

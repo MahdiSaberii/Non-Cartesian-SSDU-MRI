@@ -13,7 +13,7 @@ Non-Cartesian acquisitions such as spiral imaging offer efficient k-space covera
 The preprocessing pipeline includes visualization of full and single-shot spiral trajectories, generation of training and validation masks, and organization of data structures needed for downstream reconstruction models. The provided figures summarize the trajectory design and the resulting temporal signal-to-noise ratio behavior across the reconstructed data.
 
 <p align="center">
-  <img src="./Data/tsnr_figure.png" alt="t-SNR maps" width="900">
+  <img src="./Data/tsnr_figure.png" width="900">
 </p>
 
 

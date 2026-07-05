@@ -6,11 +6,11 @@
 
 ## Abstract
 
-This repository provides preprocessing and reconstruction utilities for self-supervised non-Cartesian MRI reconstruction using SSDU-style data splitting. The framework focuses on multi-echo spiral MRI data, including trajectory handling, density compensation, sampling mask generation, and preparation of training and validation measurements for reconstruction experiments.
+Physics-driven deep learning (PD-DL) methods have shown strong promise for accelerated MRI reconstruction by combining learned image priors with the physical MRI forward model. However, conventional PD-DL pipelines can struggle when the target images contain large phase variations, since these phase inconsistencies may degrade data consistency and reconstruction quality. This issue is especially relevant in multi-echo fMRI, where substantial phase differences can appear across echo images.
 
-Non-Cartesian acquisitions such as spiral imaging offer efficient k-space coverage and improved scan-time flexibility, but they require careful handling of trajectory information, density compensation, and undersampling masks. This repository is designed to support experiments where the acquired k-space measurements are divided into disjoint subsets for self-supervised training and loss evaluation, reducing dependence on fully sampled reference data.
+To address this challenge, we propose a phase-corrected physics-driven deep learning method, referred to as PC-PDDL, that explicitly models and corrects phase inconsistencies within the unrolled reconstruction process. We investigate two phase estimation strategies: a neural network-based approach and a simpler low-pass filtering-based approach.
 
-The preprocessing pipeline includes visualization of full and single-shot spiral trajectories, generation of training and validation masks, and organization of data structures needed for downstream reconstruction models. The provided figures summarize the trajectory design and the resulting temporal signal-to-noise ratio behavior across the reconstructed data.
+Experiments on prospectively undersampled non-Cartesian multi-echo fMRI data show that the low-pass filtering strategy improves upon standard non-phase-corrected PD-DL despite its simplicity. In contrast, the neural network-based phase estimation approach fails to generalize reliably from supervised training. These results suggest that explicit phase correction can improve non-Cartesian multi-echo fMRI reconstruction, while also highlighting the importance of robust and generalizable phase estimation within unrolled PD-DL frameworks.
 
 <p align="center">
   <img src="./Data/tsnr_figure.png" width="900">

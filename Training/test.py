@@ -62,6 +62,8 @@ if __name__ == "__main__":
                                             num_workers = 4)
     
     maskkk       = torch.tensor(sio.loadmat("../Data/Tuke_01.mat")["LPfilter"]).to(device)
+    LPF          = torch.tensor(sio.loadmat(f"../Data/Tukey_{LPF_size}.mat")["LPfilter"]).to(device)
+
     dataset_size = len(data_loader)
     
 

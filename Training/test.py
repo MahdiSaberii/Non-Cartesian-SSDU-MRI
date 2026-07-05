@@ -117,7 +117,7 @@ if __name__ == "__main__":
         elif MODEL == "PELPF":
             output          = network(omega_EHWy , coil , used_M_theta, p_prime) # Shape: (1,nEcho,120,120)
 
-        dc_out = cg(omega_EHWy , omega_EHWy ,coil, used_M_theta)
+        dc_out = CG(omega_EHWy , omega_EHWy ,coil, used_M_theta)
 
         c_sbj    = int(subjectNumber.item())
         s_number = int(sliceNumber.item())

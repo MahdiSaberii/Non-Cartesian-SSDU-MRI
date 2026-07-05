@@ -19,8 +19,12 @@ Experiments on prospectively undersampled non-Cartesian multi-echo fMRI data sho
 ```text
 Non-Cartesian-SSDU-MRI/
 └── Data/
-   ├── traj_figure.png
-   └── tsnr_figure.png
+   ├── Tuke_01.mat
+   ├── Tukey_32.mat
+   ├── Tukey_64.mat
+   ├── all_ones_mask.mat
+   ├── trj_kxy_full.mat
+   └── trj_kxy_single.mat
 
 └── Preprocess/
    ├── Espirit/
@@ -40,9 +44,9 @@ Non-Cartesian-SSDU-MRI/
    ├── ResNet.py
    ├── Unrolled_Network.py
    ├── train.py
-   ├── test.py
-   ├── requirements.txt
-
+   └── test.py
+   
+└── requirements.txt
 └── README.md
 ```
 

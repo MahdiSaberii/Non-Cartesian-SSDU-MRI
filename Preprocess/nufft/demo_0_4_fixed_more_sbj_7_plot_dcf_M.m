@@ -1,0 +1,965 @@
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF.mat')
+load('/home/daedalus1-raid1/akcakaya-group-data/ScannerData/Data/Volunteer/LiverData_fromCRettenmeier/dataset_meas_MID00280_FID08424_RAVE.mat')
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/full_cor_2D_sbj1.mat')
+
+%%
+trj_full = trj_kxy(:,:,1,:);
+trj_full_reshaped = reshape(trj_full, [2176*10, 6]);
+
+%%
+DCF = zeros(2176,10,6);
+for ie = 1:Neco
+    DCF(:,:,ie) = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+end
+
+%%
+figure()
+for i = 1: 6
+    %f = figure;
+    %f.Position = [100 100 700 700];
+    %nexttile
+    thick = 4;
+    subplot(2,3,i);
+    
+    c = [abs(DCF(:,1,i)),abs(DCF(:,1,i)),abs(DCF(:,1,i))];
+    scatter(-imag(trj_full(:,1,i)), real(trj_full(:,1,i)), thick, c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,1) = abs(DCF(:,2, i));
+    scatter(-imag(trj_full(:,2,i)), real(trj_full(:,2,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,2) = abs(DCF(:,3, i));
+    scatter(-imag(trj_full(:,3,i)), real(trj_full(:,3,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,3) = abs(DCF(:,4, i));
+    scatter(-imag(trj_full(:,4,i)), real(trj_full(:,4,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,1) = abs(DCF(:,5,i));
+    scatter(-imag(trj_full(:,5,i)), real(trj_full(:,5,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,2) = abs(DCF(:,6,i));
+    scatter(-imag(trj_full(:,6,i)), real(trj_full(:,6,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,3) = abs(DCF(:,7,i));
+    scatter(-imag(trj_full(:,7,i)), real(trj_full(:,7,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,1) = abs(DCF(:,8,i));
+    scatter(-imag(trj_full(:,8,i)), real(trj_full(:,8,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,2) = abs(DCF(:,9,i));
+    scatter(-imag(trj_full(:,9,i)), real(trj_full(:,9,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    hold on
+    
+    c = zeros(2176,3);
+    c(:,3) = abs(DCF(:,10,i));
+    scatter(-imag(trj_full(:,10,i)), real(trj_full(:,10,i)), thick,c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    
+    set(gca,'color','black');
+end
+
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/singleshot_cor_2D_sbj1.mat')
+
+%%
+%%
+DCF = zeros(2176,6);
+for ie = 1:Neco
+    DCF(:,ie) = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+end
+%%
+trj_single = squeeze(trj_kxy(:,1,:));
+%trj_full_reshaped = reshape(trj_full, [2176*10, 6]);
+%%
+figure()
+for i = 1: 6
+    %f = figure;
+    %f.Position = [100 100 700 700];
+    %nexttile
+    thick = 4;
+    subplot(2,3,i);
+    
+    c = [abs(DCF(:,i)),abs(DCF(:,i)),abs(DCF(:,i))];
+    scatter(-imag(trj_single(:,i)), real(trj_single(:,i)), thick, c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    
+    
+    set(gca,'color','black');
+end
+
+%%
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_1.mat')
+
+trj_train = trj_single(training == 1, :);
+trj_val = trj_single(validation == 1, :);
+
+dcf_train = DCF(training == 1, :);
+dcf_val = DCF(validation == 1, :);
+
+
+figure()
+for i = 1: 6
+    %f = figure;
+    %f.Position = [100 100 700 700];
+    %nexttile
+    thick = 4;
+    subplot(2,3,i);
+    
+    c = [abs(dcf_train(:,i)),abs(dcf_train(:,i)),abs(dcf_train(:,i))];
+    scatter(-imag(trj_train(:,i)), real(trj_train(:,i)), thick, c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    
+    
+    set(gca,'color','black');
+end
+
+figure()
+for i = 1: 6
+    %f = figure;
+    %f.Position = [100 100 700 700];
+    %nexttile
+    thick = 4;
+    subplot(2,3,i);
+    
+    c = [abs(dcf_val(:,i)),abs(dcf_val(:,i)),abs(dcf_val(:,i))];
+    scatter(-imag(trj_val(:,i)), real(trj_val(:,i)), thick, c, 'filled')
+    xlim([-0.6 0.6])
+    ylim([-0.6 0.6])
+    %frame1.axes.get_xaxis().set_visible(False)
+    %frame1.axes.get_yaxis().set_visible(False)
+    
+    
+    set(gca,'color','black');
+end
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+Ncoil = size(data_full,4); %different
+Npar = 72;
+img_uncombined_full = zeros([[120,120], Neco]);
+data_full_reshaped = reshape(data_full, [2176, 6, 10, Npar, Ncoil]);
+
+
+data = ones(size(squeeze(data_full_reshaped(:,1,:,1,1))));
+img = par.FT{1}' * data;
+k = fftshift(fft2(ifftshift(img)));
+
+figure()
+imshow(log(abs(k)), [])
+
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_full(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_full_reshaped(:,ie,:,ip,ic)), par.prec));          
+        end
+    end
+end
+img = permute(img_uncombined_full, [1,2,5,3,4]);
+coil = ZcGetSpiralCoils_2D(img,1);
+coil = coil(:,:,:,:,1);
+
+%%
+coil_all = zeros(4,60,52,120,120);
+coil_all(1,:,:,:,:) = permute(coil(:,:,7:66,:), [3, 4, 1, 2]);
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/singleshot_cor_2D_sbj1.mat')
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+% 
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined = zeros([[120,120], Ncoil, Neco, Npar]);
+data_single_reshaped = reshape(data_single, [2176, 6, 72, Ncoil]);
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_single_reshaped(:,ie,ip,ic)), par.prec));          
+        end
+    end
+end
+
+
+%%
+fprintf('Old mask \n')
+training_all =zeros(10,2176);
+validation_all = zeros(10, 2176);
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_1.mat')
+training_all(1, :) = training;
+validation_all(1, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_2.mat')
+training_all(2, :) = training;
+validation_all(2, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_3.mat')
+training_all(3, :) = training;
+validation_all(3, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_4.mat')
+training_all(4, :) = training;
+validation_all(4, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_5.mat')
+training_all(5, :) = training;
+validation_all(5, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_1.mat')
+training_all(6, :) = training;
+validation_all(6, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_2.mat')
+training_all(7, :) = training;
+validation_all(7, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_3.mat')
+training_all(8, :) = training;
+validation_all(8, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_4.mat')
+training_all(9, :) = training;
+validation_all(9, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_5.mat')
+training_all(10, :) = training;
+validation_all(10, :) = validation;
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+%trj_training = zeros(5, 1306, 6);
+%trj_validation = zeros(5, 870, 6);
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m+10, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined_train = zeros([Ncoil, [120,120],Neco]);
+img_uncombined_validation = zeros([Ncoil, [120,120], Neco]);
+
+training_data = zeros(10, 2176, 6, 72, Ncoil);
+validation_data  = zeros(10,2176, 6, 72, Ncoil);
+
+for m = 1: 10
+    training_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    training_data(m, training_all(m,:)~=1,:,:,:) = 0;
+    validation_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    validation_data(m, training_all(m,:)==1,:,:,:) = 0;
+end
+
+%%
+fprintf('Gridding of k-space data \n')
+sb = 1;%
+count = 0;%%
+for m = 1: 10
+    for ip = 7:Npar-6
+    coil_2 = permute(single(squeeze(coil(:,:,ip,:))), [3,1,2]);
+    atb_2_train = zeros(120,120,6);
+    atb_2_val = zeros(120,120,6);
+    atb_10 = zeros(120, 120, 6);
+    for ie = 1:Neco
+        DCF = transpose(dc10x(:,ie)./ max(max(dc10x(:,ie))));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_train(ic, :,:,ie) = par.FT{m, ie}' * (DCF.*cast(squeeze(training_data(m, :,ie,ip,ic)), par.prec));          
+            img_uncombined_validation(ic, :,:,ie) = par.FT{m+10, ie}' * (DCF.*cast(squeeze(validation_data(m, :,ie,ip,ic)), par.prec));
+        end
+        atb_2_train(:,:,ie) = sum(img_uncombined_train(:,:,:,ie).*conj(coil_2), 1);
+        atb_2_val(:,:,ie) = sum(img_uncombined_validation(:,:,:,ie).*conj(coil_2), 1);
+        atb_10(:,:,ie) = sum(permute(img_uncombined(:,:,:,ie,ip), [3,1,2]).*conj(coil_2),1);
+    end
+    count = count + 1;
+    
+    atb_2 = permute(atb_2_train, [3,1,2]);
+    refi_2 = permute(atb_2_val, [3,1,2]);
+    idx = count;
+    
+%    m = m + 5; %%
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_lambda_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'refi_2', 'coil_2', 'idx', 'sb', 'm')
+    
+    ref_2 = permute(atb_10, [3,1,2]);
+    
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_omega_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'ref_2', 'coil_2', 'idx', 'sb', 'm')
+ %   m = m - 5; %%
+    
+    end
+end
+
+
+
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/full_cor_2D_sbj2.mat')
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+Ncoil = size(data_full,4); %different
+Npar = 72;
+img_uncombined_full = zeros([[120,120], Ncoil, Neco, Npar]);
+data_full_reshaped = reshape(data_full, [2176, 6, 10, Npar, Ncoil]);
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_full(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_full_reshaped(:,ie,:,ip,ic)), par.prec));          
+        end
+    end
+end
+img = permute(img_uncombined_full, [1,2,5,3,4]);
+coil = ZcGetSpiralCoils_2D(img,1);
+coil = coil(:,:,:,:,1);
+
+coil_all(2,:,:,:,:) = permute(coil(:,:,7:66,:), [3, 4, 1, 2]);
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/singleshot_cor_2D_sbj2.mat')
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+% 
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined = zeros([[120,120], Ncoil, Neco, Npar]);
+data_single_reshaped = reshape(data_single, [2176, 6, 72, Ncoil]);
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_single_reshaped(:,ie,ip,ic)), par.prec));          
+        end
+    end
+end
+
+
+%%
+fprintf('Old mask \n')
+training_all =zeros(10,2176);
+validation_all = zeros(10, 2176);
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_1.mat')
+training_all(1, :) = training;
+validation_all(1, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_2.mat')
+training_all(2, :) = training;
+validation_all(2, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_3.mat')
+training_all(3, :) = training;
+validation_all(3, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_4.mat')
+training_all(4, :) = training;
+validation_all(4, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_5.mat')
+training_all(5, :) = training;
+validation_all(5, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_1.mat')
+training_all(6, :) = training;
+validation_all(6, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_2.mat')
+training_all(7, :) = training;
+validation_all(7, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_3.mat')
+training_all(8, :) = training;
+validation_all(8, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_4.mat')
+training_all(9, :) = training;
+validation_all(9, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_5.mat')
+training_all(10, :) = training;
+validation_all(10, :) = validation;
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+%trj_training = zeros(5, 1306, 6);
+%trj_validation = zeros(5, 870, 6);
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m+10, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined_train = zeros([Ncoil, [120,120],Neco]);
+img_uncombined_validation = zeros([Ncoil, [120,120], Neco]);
+
+training_data = zeros(10, 2176, 6, 72, Ncoil);
+validation_data  = zeros(10,2176, 6, 72, Ncoil);
+
+for m = 1: 10
+    training_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    training_data(m, training_all(m,:)~=1,:,:,:) = 0;
+    validation_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    validation_data(m, training_all(m,:)==1,:,:,:) = 0;
+end
+
+%%
+fprintf('Gridding of k-space data \n')
+sb = 2;%
+%%count = 0;%%
+for m = 1: 10
+    for ip = 7:Npar-6
+    coil_2 = permute(single(squeeze(coil(:,:,ip,:))), [3,1,2]);
+    atb_2_train = zeros(120,120,6);
+    atb_2_val = zeros(120,120,6);
+    atb_10 = zeros(120, 120, 6);
+    for ie = 1:Neco
+        DCF = transpose(dc10x(:,ie)./ max(max(dc10x(:,ie))));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_train(ic, :,:,ie) = par.FT{m, ie}' * (DCF.*cast(squeeze(training_data(m, :,ie,ip,ic)), par.prec));          
+            img_uncombined_validation(ic, :,:,ie) = par.FT{m+10, ie}' * (DCF.*cast(squeeze(validation_data(m, :,ie,ip,ic)), par.prec));
+        end
+        atb_2_train(:,:,ie) = sum(img_uncombined_train(:,:,:,ie).*conj(coil_2), 1);
+        atb_2_val(:,:,ie) = sum(img_uncombined_validation(:,:,:,ie).*conj(coil_2), 1);
+        atb_10(:,:,ie) = sum(permute(img_uncombined(:,:,:,ie,ip), [3,1,2]).*conj(coil_2),1);
+    end
+    count = count + 1;
+    
+    atb_2 = permute(atb_2_train, [3,1,2]);
+    refi_2 = permute(atb_2_val, [3,1,2]);
+    idx = count;
+    
+%    m = m + 5; %%
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_lambda_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'refi_2', 'coil_2', 'idx', 'sb', 'm')
+    
+    ref_2 = permute(atb_10, [3,1,2]);
+    
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_omega_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'ref_2', 'coil_2', 'idx', 'sb', 'm')
+ %   m = m - 5; %%
+    
+    end
+end
+
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/full_cor_2D_sbj3.mat')
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+Ncoil = size(data_full,4); %different
+Npar = 72;
+img_uncombined_full = zeros([[120,120], Ncoil, Neco, Npar]);
+data_full_reshaped = reshape(data_full, [2176, 6, 10, Npar, Ncoil]);
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_full(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_full_reshaped(:,ie,:,ip,ic)), par.prec));          
+        end
+    end
+end
+img = permute(img_uncombined_full, [1,2,5,3,4]);
+coil = ZcGetSpiralCoils_2D(img,1);
+coil = coil(:,:,:,:,1);
+coil_all(3,:,:,:,:) = permute(coil(:,:,7:66,:), [3, 4, 1, 2]);
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/singleshot_cor_2D_sbj3.mat')
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+% 
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined = zeros([[120,120], Ncoil, Neco, Npar]);
+data_single_reshaped = reshape(data_single, [2176, 6, 72, Ncoil]);
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_single_reshaped(:,ie,ip,ic)), par.prec));          
+        end
+    end
+end
+
+
+%%
+fprintf('Old mask \n')
+training_all =zeros(10,2176);
+validation_all = zeros(10, 2176);
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_1.mat')
+training_all(1, :) = training;
+validation_all(1, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_2.mat')
+training_all(2, :) = training;
+validation_all(2, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_3.mat')
+training_all(3, :) = training;
+validation_all(3, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_4.mat')
+training_all(4, :) = training;
+validation_all(4, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_5.mat')
+training_all(5, :) = training;
+validation_all(5, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_1.mat')
+training_all(6, :) = training;
+validation_all(6, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_2.mat')
+training_all(7, :) = training;
+validation_all(7, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_3.mat')
+training_all(8, :) = training;
+validation_all(8, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_4.mat')
+training_all(9, :) = training;
+validation_all(9, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_5.mat')
+training_all(10, :) = training;
+validation_all(10, :) = validation;
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+%trj_training = zeros(5, 1306, 6);
+%trj_validation = zeros(5, 870, 6);
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m+10, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined_train = zeros([Ncoil, [120,120],Neco]);
+img_uncombined_validation = zeros([Ncoil, [120,120], Neco]);
+
+training_data = zeros(10, 2176, 6, 72, Ncoil);
+validation_data  = zeros(10,2176, 6, 72, Ncoil);
+
+for m = 1: 10
+    training_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    training_data(m, training_all(m,:)~=1,:,:,:) = 0;
+    validation_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    validation_data(m, training_all(m,:)==1,:,:,:) = 0;
+end
+
+%%
+fprintf('Gridding of k-space data \n')
+sb = 3;%
+%%count = 0;%%
+for m = 1: 10
+    for ip = 7:Npar-6
+    coil_2 = permute(single(squeeze(coil(:,:,ip,:))), [3,1,2]);
+    atb_2_train = zeros(120,120,6);
+    atb_2_val = zeros(120,120,6);
+    atb_10 = zeros(120, 120, 6);
+    for ie = 1:Neco
+        DCF = transpose(dc10x(:,ie)./ max(max(dc10x(:,ie))));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_train(ic, :,:,ie) = par.FT{m, ie}' * (DCF.*cast(squeeze(training_data(m, :,ie,ip,ic)), par.prec));          
+            img_uncombined_validation(ic, :,:,ie) = par.FT{m+10, ie}' * (DCF.*cast(squeeze(validation_data(m, :,ie,ip,ic)), par.prec));
+        end
+        atb_2_train(:,:,ie) = sum(img_uncombined_train(:,:,:,ie).*conj(coil_2), 1);
+        atb_2_val(:,:,ie) = sum(img_uncombined_validation(:,:,:,ie).*conj(coil_2), 1);
+        atb_10(:,:,ie) = sum(permute(img_uncombined(:,:,:,ie,ip), [3,1,2]).*conj(coil_2),1);
+    end
+    count = count + 1;
+    
+    atb_2 = permute(atb_2_train, [3,1,2]);
+    refi_2 = permute(atb_2_val, [3,1,2]);
+    idx = count;
+    
+%    m = m + 5; %%
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_lambda_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'refi_2', 'coil_2', 'idx', 'sb', 'm')
+    
+    ref_2 = permute(atb_10, [3,1,2]);
+    
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_omega_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'ref_2', 'coil_2', 'idx', 'sb', 'm')
+ %   m = m - 5; %%
+    
+    end
+end
+
+
+
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/full_cor_2D_sbj4.mat')
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+Ncoil = size(data_full,4); %different
+Npar = 72;
+img_uncombined_full = zeros([[120,120], Ncoil, Neco, Npar]);
+data_full_reshaped = reshape(data_full, [2176, 6, 10, Npar, Ncoil]);
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dcFull(:,:,ie)./ max(max(dcFull(:,:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_full(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_full_reshaped(:,ie,:,ip,ic)), par.prec));          
+        end
+    end
+end
+img = permute(img_uncombined_full, [1,2,5,3,4]);
+coil = ZcGetSpiralCoils_2D(img,1);
+coil = coil(:,:,:,:,1);
+coil_all(4,:,:,:,:) = permute(coil(:,:,7:66,:), [3, 4, 1, 2]);
+
+%% %
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/RawData/singleshot_cor_2D_sbj4.mat')
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+for ie = 1:Neco
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{ie} = NUFFTDCF(trj_kxy(:,1,ie), ones(size(DCF.^2)), shift, [120, 120]);
+end
+% 
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined = zeros([[120,120], Ncoil, Neco, Npar]);
+data_single_reshaped = reshape(data_single, [2176, 6, 72, Ncoil]);
+
+%%
+fprintf('Gridding of k-space data \n')
+for ip = 1:Npar
+    for ie = 1:Neco
+        DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined(:,:,ic,ie,ip) = par.FT{ie}' * (DCF.*cast(squeeze(data_single_reshaped(:,ie,ip,ic)), par.prec));          
+        end
+    end
+end
+
+
+%%
+fprintf('Old mask \n')
+training_all =zeros(10,2176);
+validation_all = zeros(10, 2176);
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_1.mat')
+training_all(1, :) = training;
+validation_all(1, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_2.mat')
+training_all(2, :) = training;
+validation_all(2, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_3.mat')
+training_all(3, :) = training;
+validation_all(3, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_4.mat')
+training_all(4, :) = training;
+validation_all(4, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/0_4/mask_new_0_4_5.mat')
+training_all(5, :) = training;
+validation_all(5, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_1.mat')
+training_all(6, :) = training;
+validation_all(6, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_2.mat')
+training_all(7, :) = training;
+validation_all(7, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_3.mat')
+training_all(8, :) = training;
+validation_all(8, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_4.mat')
+training_all(9, :) = training;
+validation_all(9, :) = validation;
+
+load('/home/naxos2-raid7/hongygu/non_cartesian/mask_new_extra_0_4_5.mat')
+training_all(10, :) = training;
+validation_all(10, :) = validation;
+
+%% Calculate NUFFT operator
+shift   = [0,0];
+Neco = 6;
+fprintf('Calculating NUFFT operators \n')
+
+%trj_training = zeros(5, 1306, 6);
+%trj_validation = zeros(5, 870, 6);
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+for m = 1: 10
+for ie = 1:Neco
+    trj = trj_kxy(:, 1, ie);
+    DCF = dc10x(:,ie)./ max(max(dc10x(:,ie)));
+    par.FT{m+10, ie} = NUFFTDCF(trj, ones(size(DCF.^2)), shift, [120, 120]);
+end
+end
+
+Ncoil = size(data_single, 3); %different
+Npar = 72;
+img_uncombined_train = zeros([Ncoil, [120,120],Neco]);
+img_uncombined_validation = zeros([Ncoil, [120,120], Neco]);
+
+training_data = zeros(10, 2176, 6, 72, Ncoil);
+validation_data  = zeros(10,2176, 6, 72, Ncoil);
+
+for m = 1: 10
+    training_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    training_data(m, training_all(m,:)~=1,:,:,:) = 0;
+    validation_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);
+    validation_data(m, training_all(m,:)==1,:,:,:) = 0;
+end
+
+%%
+fprintf('Gridding of k-space data \n')
+sb = 4;%
+%count = 0;%%
+for m = 1: 10
+    for ip = 7:Npar-6
+    coil_2 = permute(single(squeeze(coil(:,:,ip,:))), [3,1,2]);
+    atb_2_train = zeros(120,120,6);
+    atb_2_val = zeros(120,120,6);
+    atb_10 = zeros(120, 120, 6);
+    for ie = 1:Neco
+        DCF = transpose(dc10x(:,ie)./ max(max(dc10x(:,ie))));
+        for ic = 1:Ncoil
+            fprintf('\t Neco: %d/%d  Ncoil: %d/%d \n',ie,Neco,ic,Ncoil)           
+            img_uncombined_train(ic, :,:,ie) = par.FT{m, ie}' * (DCF.*cast(squeeze(training_data(m, :,ie,ip,ic)), par.prec));          
+            img_uncombined_validation(ic, :,:,ie) = par.FT{m+10, ie}' * (DCF.*cast(squeeze(validation_data(m, :,ie,ip,ic)), par.prec));
+        end
+        atb_2_train(:,:,ie) = sum(img_uncombined_train(:,:,:,ie).*conj(coil_2), 1);
+        atb_2_val(:,:,ie) = sum(img_uncombined_validation(:,:,:,ie).*conj(coil_2), 1);
+        atb_10(:,:,ie) = sum(permute(img_uncombined(:,:,:,ie,ip), [3,1,2]).*conj(coil_2),1);
+    end
+    count = count + 1;
+    
+    atb_2 = permute(atb_2_train, [3,1,2]);
+    refi_2 = permute(atb_2_val, [3,1,2]);
+    idx = count;
+    
+%    m = m + 5; %%
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_lambda_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'refi_2', 'coil_2', 'idx', 'sb', 'm')
+    
+    ref_2 = permute(atb_10, [3,1,2]);
+    
+    fname = sprintf('/home/naxos2-raid7/hongygu/non_cartesian/spiral_fmri/DCF_modified_results/my_training/ssdu_0_5/new_run/fixed_data/fixed/slices_omega_7/slice_%d.mat', count);
+    save(fname, 'atb_2', 'ref_2', 'coil_2', 'idx', 'sb', 'm')
+ %   m = m - 5; %%
+    
+    end
+end

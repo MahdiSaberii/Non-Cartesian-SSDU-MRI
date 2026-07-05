@@ -79,3 +79,66 @@ pip install torch==2.2.1+cu121 --index-url https://download.pytorch.org/whl/cu12
 ```bash
 pip install -r requirements.txt
 ```
+
+## Training and Testing
+
+After completing the preprocessing pipeline, the prepared data can be used for multi-mask SSDU training. The preprocessing step should generate the required NUFFT operators, coil sensitivity maps, density compensation files, and SSDU training/validation masks.
+
+Before starting training, set the desired number of training masks in `train.py`. This controls how many SSDU mask splits are used during multi-mask self-supervised learning.
+
+To train the reconstruction network, run:
+
+```bash
+python train.py
+```
+
+After training is completed, the trained model can be tested on the full fMRI scan. Specify the path to the saved model weights in `test.py`, then run:
+
+```bash
+python test.py
+```
+
+The testing script loads the trained model weights and reconstructs the whole fMRI scan using the selected checkpoint.
+
+## Data and Checkpoints
+
+Large MRI data files and trained model checkpoints are not included in this repository. Very shocking, GitHub does not enjoy being used as a landfill for raw MRI scans.
+
+Avoid committing large files such as:
+
+```text
+*.mat
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+Data/raw/
+Results/
+Checkpoints/
+```
+
+If large files need to be shared, use external storage or Git LFS.
+
+A recommended `.gitignore` is:
+
+```gitignore
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+*.mat
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+
+Data/raw/
+Results/
+Checkpoints/
+```

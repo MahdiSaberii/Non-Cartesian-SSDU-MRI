@@ -43,7 +43,8 @@ if __name__ == "__main__":
     device = torch.device(dev)
     MODEL            = "ConvPDDL" # "ConvPDDL" or "PELPF"
     batch_size       = 1
-    
+    LPF_size         = 32
+
     R              = 6
     Number_Masks   = 3 # This determines which model to load
     nEcho          = 5

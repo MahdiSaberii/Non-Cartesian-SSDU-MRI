@@ -44,7 +44,7 @@ for subj_idx=1:length(Test_Subjects)
     end
 
 %%
-    dcf_single = load('../Data/DCF_Single.mat');
+    dcf_single = load('../DCF/DCF_Single.mat');
     trj_single = dcf_single.kx + 1j * dcf_single.ky;
     for ie = 1:nEcho
         DCF = dcf_single.dcf_single(:,ie)./ max(max(dcf_single.dcf_single(:,ie)));

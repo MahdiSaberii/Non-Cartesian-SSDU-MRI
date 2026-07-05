@@ -54,7 +54,7 @@ for subj_idx=1:length(Test_Subjects)
     img_uncombined       = zeros([[img_width,img_width], nCoil, nEcho, nSlice]);
     for idx_time = time_idxs
         data_single = data_single_huge(:,:,idx_time, :);
-        data_single_reshaped = reshape(data_single, [totalpoints, nEcho, nSlice, nCoil]);
+        data_single_reshaped = reshape(data_single, [TotalNumberofPoints, nEcho, nSlice, nCoil]);
 
         fprintf('Gridding of k-space data \n')
         for ip = 1:nSlice

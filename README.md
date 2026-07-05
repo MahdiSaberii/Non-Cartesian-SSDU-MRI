@@ -103,3 +103,17 @@ python test.py
 ```
 
 The testing script loads the trained model weights and reconstructs the whole fMRI scan using the selected checkpoint.
+
+## 📝 BibTeX
+
+If you find this repository useful in your research, please consider citing our work:
+
+```bibtex
+@inproceedings{saberi2026phase,
+  title={Phase-Correction Strategies for Physics-Driven Deep Learning Reconstruction of Accelerated Non-Cartesian Multi-Echo fMRI},
+  author={Saberi, Mahdi and Yu, Zidan and Rettenmeier, Christoph and Stenger, Andrew and Ak{\c{c}}akaya, Mehmet},
+  booktitle={2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)},
+  pages={1--4},
+  year={2026},
+  organization={IEEE}
+}

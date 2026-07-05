@@ -69,7 +69,7 @@ for subj_idx=1:length(Test_Subjects)
         end
         img_uncombined = permute(img_uncombined, [1,2,5,3,4]);% -> 120,120,24,34,10
         img_uncombined_train = zeros([[img_width,img_width], nCoil,nEcho,nSlice]);
-        training_data        = zeros(N_Masks, totalpoints, nEcho, nSlice, nCoil);
+        training_data        = zeros(N_Masks, TotalNumberofPoints, nEcho, nSlice, nCoil);
 
         for m = 1: N_Masks
             training_data(m, :,:,:,:) = data_single_reshaped(:, :, :,:,:);

@@ -54,5 +54,3 @@ Preprocess/
 │
 ├── A4_EHyGen_TestfMRI.m
 │   └── Applies the preprocessing pipeline to test fMRI data
-│
-└── README.md

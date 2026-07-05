@@ -16,6 +16,35 @@ Experiments on prospectively undersampled non-Cartesian multi-echo fMRI data sho
   <img src="./Data/tsnr_figure.png" width="900">
 </p>
 
+```text
+Non-Cartesian-SSDU-MRI/
+│
+├── Data/
+│   ├── traj_figure.png
+│   └── tsnr_figure.png
+│
+├── Preprocess/
+│   ├── Espirit/
+│   ├── nufft/
+│   ├── A0_DCF.py
+│   ├── A0_MaskGen.m
+│   ├── A1_FastOperator.m
+│   ├── A2_LabelCoilGen.m
+│   ├── A3_EHyGen.m
+│   ├── A4_EHyGen_TestfMRI.m
+│   └── README.md
+│
+├── DC.py
+├── DataLoader.py
+├── DataLoader_Test.py
+├── ResNet.py
+├── Unrolled_Network.py
+├── train.py
+├── test.py
+├── requirements.txt
+└── README.md
+```
+
 
 ## Quick Start
 Note: This code was tested with `torch==2.2.1+cu121`. 

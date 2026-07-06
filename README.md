@@ -1,4 +1,7 @@
 # Non-Cartesian-SSDU-MRI
+<a href="[https://ieeexplore.ieee.org/](https://ieeexplore.ieee.org/abstract/document/11515729?casa_token=RbrTfmqjiFEAAAAA:4bG2VPYebMDAnleYKCl1ClcQmm8bUGeJ9lhNBI2AhgkqcF82H-FDiHxR4KGFSwixPFxloEjF)">
+  <img src="https://img.shields.io/badge/IEEE%20ISBI-2026-00629B">
+</a>
 
 <p align="center">
   <img src="./Data/traj_figure.png" width="900">

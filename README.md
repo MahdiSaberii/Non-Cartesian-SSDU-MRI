@@ -109,7 +109,7 @@ The testing script loads the trained model weights and reconstructs the whole fM
 
 ## 📝 BibTeX
 
-If you find this repository useful in your research, please consider citing our work:
+If you find this repository useful in your research, please consider citing our works:
 
 ```bibtex
 @inproceedings{saberi2026phase,
@@ -118,5 +118,14 @@ If you find this repository useful in your research, please consider citing our 
   booktitle={2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)},
   pages={1--4},
   year={2026},
+  organization={IEEE}
+}
+
+@inproceedings{gu2024non,
+  title={Non-cartesian self-supervised physics-driven deep learning reconstruction for highly-accelerated multi-echo spiral fMRI},
+  author={Gu, Hongyi and Zhang, Chi and Yu, Zidan and Rettenmeier, Christoph and Stenger, V Andrew and Ak{\c{c}}akaya, Mehmet},
+  booktitle={2024 IEEE International Symposium on Biomedical Imaging (ISBI)},
+  pages={1--5},
+  year={2024},
   organization={IEEE}
 }

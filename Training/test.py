@@ -73,7 +73,7 @@ if __name__ == "__main__":
     elif MODEL == "PELPF":
         network    = UnrolledNet(device = device, Unrolls=10, echoes=nEcho).to(device)
     network.load_state_dict(torch.load(f"./{MODEL}_{Number_Masks}Masks/model/nework_r{R}_epoch95.pth"))
-    network.train()
+    network.test()
 
     Saving_Folder     = f"./{MODEL}_{Number_Masks}Masks_Test/"
 

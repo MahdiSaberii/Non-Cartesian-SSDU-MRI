@@ -52,7 +52,7 @@ for subj_idx=11:17
     end
 
     img_uncombined_full = zeros([[img_width,img_width], nCoil, nEcho, nSlice]);
-    data_full_reshaped  = reshape(data_ref, [totalpoints, nEcho, nArms, nSlice, nCoil]);
+    data_full_reshaped  = reshape(data_ref, [TotalNumberofPoints, nEcho, nArms, nSlice, nCoil]);
 
     fprintf('Gridding of k-space data \n')
     for ip = 1:nSlice

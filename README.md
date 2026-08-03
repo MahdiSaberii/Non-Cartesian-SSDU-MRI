@@ -97,7 +97,9 @@ pip install -r requirements.txt
 After completing the preprocessing pipeline, the prepared data can be used for multi-mask SSDU training. The preprocessing step should generate the required NUFFT operators, coil sensitivity maps, density compensation files, and SSDU training/validation masks.
 </p>
 
+<p align="justify">
 Before starting training, set the desired number of training masks in `train.py`. This controls how many SSDU mask splits are used during multi-mask self-supervised learning.
+</p>
 
 To train the reconstruction network, run:
 

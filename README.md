@@ -10,9 +10,13 @@
 ## Abstract
 <p align="justify">
 Physics-driven deep learning (PD-DL) methods have shown strong promise for accelerated MRI reconstruction by combining learned image priors with the physical MRI forward model. However, conventional PD-DL pipelines can struggle when the target images contain large phase variations, since these phase inconsistencies may degrade data consistency and reconstruction quality. This issue is especially relevant in multi-echo fMRI, where substantial phase differences can appear across echo images.
+</p>
 
+<p align="justify">
 To address this challenge, we propose a low-passed filter phase-corrected physics-driven deep learning method, referred to as LPF-based PC-PDDL, that explicitly models and corrects phase inconsistencies within the unrolled reconstruction process. 
+</p>
 
+<p align="justify">
 Experiments on prospectively undersampled non-Cartesian multi-echo fMRI data show that the low-pass filtering strategy improves upon standard non-phase-corrected PD-DL despite its simplicity. These results suggest that explicit phase correction can improve non-Cartesian multi-echo fMRI reconstruction, while also highlighting the importance of robust and generalizable phase estimation within unrolled PD-DL frameworks.
 </p>
 
